@@ -2,8 +2,6 @@ import React from "react";
 import UseItems from "../UseItems/UseItems";
 import "./ItemDetail.css"
 
-
-
 function ItemDetail ({productList}) {
 
 

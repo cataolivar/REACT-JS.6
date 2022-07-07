@@ -10,15 +10,19 @@ function ItemDetailContainer () {
     const [productList, setProductList] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const {categoryId} = useParams()
+    const {id} = useParams()
 
-    useEffect (()=> {
-        setLoading (true)
-        getProds(categoryId)
-        .then(resp => setProductList(resp.find(prod => prod.category)))
+    useEffect (()=> { 
+
+        setLoading (true) 
+        
+        getProds() 
+        
+        .then(resp => setProductList(resp.find(prod => prod.id === id))) 
+        
         .finally(()=> setLoading(false))
-
-    }, [categoryId])
+        
+        }, [id])
 
     return(
         <div className="spinners"> {loading ? <PacmanLoader color="#FFC0CB" size= {25} margin={0}/>
